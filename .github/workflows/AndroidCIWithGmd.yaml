@@ -23,11 +23,11 @@ jobs:
         uses: android-actions/setup-android@v2
 
       - name: Build AndroidTest apps
-        run: ./gradlew packageDemoDebug packageDemoDebugAndroidTest
+        run: ./gradlew packageDebug packageDebugAndroidTest
 
       - name: Run instrumented tests with GMD
         run: ./gradlew cleanManagedDevices --unused-only &&
-          ./gradlew ciDemoDebugAndroidTest -Dorg.gradle.workers.max=1
+          ./gradlew ciDebugAndroidTest -Dorg.gradle.workers.max=1
           -Pandroid.testoptions.manageddevices.emulator.gpu="swiftshader_indirect" -Pandroid.experimental.testOptions.managedDevices.emulator.showKernelLogging=true
 
       - name: Upload test reports

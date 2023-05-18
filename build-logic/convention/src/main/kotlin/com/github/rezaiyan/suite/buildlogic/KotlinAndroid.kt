@@ -19,14 +19,19 @@ internal fun Project.configureKotlinAndroid(commonExtension: CommonExtension<*, 
             targetSdk(config.targetSdkVersion)
             testInstrumentationRunner = config.test.instrumentationRunner
         }
-        compileOptions.isCoreLibraryDesugaringEnabled = true
-        configureKotlinJvm()
+        compileOptions {
+            sourceCompatibility = config.javaVersion
+            targetCompatibility = config.javaVersion
+            isCoreLibraryDesugaringEnabled = true
+        }
 
         testOptions {
             animationsDisabled = config.test.animationDisabled
             unitTests.isReturnDefaultValues = config.test.returnDefaultValues
             execution = config.test.execution
         }
+
+        configureKotlin()
 
         // https://developer.android.com/reference/tools/gradle-api/4.1/com/android/build/api/dsl/LintOptions
         lint {
