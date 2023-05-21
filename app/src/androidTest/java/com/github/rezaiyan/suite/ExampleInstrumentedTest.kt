@@ -1,12 +1,12 @@
 package com.github.rezaiyan.suite
 
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import androidx.test.platform.app.InstrumentationRegistry
 
 import org.junit.Test
 import org.junit.runner.RunWith
 
 import org.junit.Assert.*
-import org.junit.Ignore
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -16,10 +16,9 @@ import org.junit.Ignore
 @RunWith(AndroidJUnit4ClassRunner::class)
 class ExampleInstrumentedTest {
     @Test
-    @Ignore
     fun useAppContext() {
         // Context of the app under test.
-//        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.github.rezaiyan.suite", "com.github.rezaiyan.suite")
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+        assertEquals("com.github.rezaiyan.suite", appContext.packageName)
     }
 }
