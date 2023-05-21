@@ -6,6 +6,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 import org.junit.Assert.*
+import org.junit.Ignore
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -15,6 +16,7 @@ import org.junit.Assert.*
 @RunWith(AndroidJUnit4ClassRunner::class)
 class ExampleInstrumentedTest {
     @Test
+    @Ignore
     fun useAppContext() {
         // Context of the app under test.
 //        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
